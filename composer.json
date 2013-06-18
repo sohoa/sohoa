@@ -7,7 +7,7 @@
 			"hoa/router": "dev-master",
 			"hoa/view": "dev-master",
 			"hoa/dispatcher": "dev-master",
-			"hoa/session":  "dev-master",
-			"hoa/registry": "dev-master" 
+			"hoa/session":  "dev-master"
+			 
     }
 }

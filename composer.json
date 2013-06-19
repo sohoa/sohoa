@@ -1,13 +1,8 @@
 {
-    "name": "sohoa/framework",
+    "name": "sohoa/sohoa",
     "require": {
-            "php": ">=5.3.0",
-            "hoa/core": "dev-master",
-			"hoa/http": "dev-master",
-			"hoa/router": "dev-master",
-			"hoa/view": "dev-master",
-			"hoa/dispatcher": "dev-master",
-			"hoa/session":  "dev-master"
-			 
-    }
+        "sohoa/framework": "dev-master"
+
+    },
+    "minimum-stability": "dev"
 }

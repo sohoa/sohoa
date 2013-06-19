@@ -1,4 +1,4 @@
 sohoa
 =====
 
-PHP framework based on Hoa
+Squelette framework based on Sohoa

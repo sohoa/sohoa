@@ -1,11 +1,8 @@
-<?
+<?php
 
-include '../../vendor/autoload.php';
+    include '../../vendor/autoload.php';
 
-echo 'Hello world<br /.>';
+    from('Sohoa')
+        ->import('Framework.Boostrap');
 
-if(defined(HOA) === true)
-{
-    echo 'Hoa is well installed good job';
-
-}
+    $application = new \Sohoa\Framework\Bootstrap(); // The application is started !

@@ -1,0 +1,30 @@
+language: php
+
+php:
+  - 5.3
+  - 5.4
+  - 5.5
+
+
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install -y --force-yes apache2 libapache2-mod-php5
+  - sudo a2enmod rewrite
+  - sudo a2ensite default
+  - sudo sed -i -e "s,/var/www,$(pwd)/Public,g" /etc/apache2/sites-available/default
+  - git clone git://github.com/n1k0/casperjs.git ~/casperjs
+  - sudo /etc/init.d/apache2 restart
+  - cd ~/casperjs
+  - export PATH=$PATH:`pwd`/bin
+  - cd -
+
+before_script:
+  - curl -s https://getcomposer.org/installer | php
+  - php composer.phar install
+  - phantomjs --version
+  - casperjs --version
+
+script: casperjs test ./Tests/Functionnal/application.js --url="http://localhost/"
+
+notifications:
+  disabled: true

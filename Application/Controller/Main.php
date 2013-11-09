@@ -2,13 +2,13 @@
 
 namespace Application\Controller {
 
-    use Hoa\Dispatcher\Kit;
+    use Sohoa\Framework\Kit;
 
     class Main extends Kit {
 
         public function indexAction() {
-
-            echo 'Bouya';
+			
+			echo 'Bouya';
         }
     }
 }

@@ -12,9 +12,11 @@ namespace Application\Controller {
     {
 
         protected function sendErrorHeader($code, $message) {
-            /* @var $out \Hoa\Http\Response\Response */
-            $out = $this->view->getOutputStream();
-            $out->sendHeader('X-SOHOA-ERROR', $message, true, $code);
+            if ($this->view instanceof \Hoa\View\Viewable) {
+                /* @var $out \Hoa\Http\Response\Response */
+                $out = $this->view->getOutputStream();
+                $out->sendHeader('X-SOHOA-ERROR', $message, true, $code);
+            }
         }
 
         /**

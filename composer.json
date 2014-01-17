@@ -3,5 +3,8 @@
     "require": {
         "sohoa/framework": "dev-master"
     },
+    "config": {
+        "bin-dir": "Binaries"
+    },
     "minimum-stability": "dev"
 }

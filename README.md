@@ -67,7 +67,7 @@ public function IndexAction(){
 
 la méthode render() peut prendre deux types de données en paramètre
 ```PHP
-$this->greut->render(array('myControllerName' , 'myActionName')); // ./Application/View/myControllerName/myActionName.tpl.php
+$this->greut->render(['myControllerName' , 'myActionName']); // ./Application/View/myControllerName/myActionName.tpl.php
 ```
 ainsi que
 ```PHP

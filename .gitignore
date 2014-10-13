@@ -1,5 +1,6 @@
 .idea/*
 vendor/*
+Binaries
 composer.lock
 *.sqlite
 *.db

@@ -1,31 +1,25 @@
 language: php
 
 php:
-  - 5.3
   - 5.4
   - 5.5
+  - 5.6
 
 
 before_install:
   - composer self-update
-  - sudo apt-get update
-  - sudo apt-get install -y --force-yes apache2 libapache2-mod-php5
-  - sudo a2enmod rewrite
-  - sudo a2ensite default
-  - sudo sed -i -e "s,/var/www,$(pwd)/Public,g" /etc/apache2/sites-available/default
-  - sudo sed -i -e "s,AllowOverride None,AllowOverride All,g" /etc/apache2/sites-available/default
   - git clone git://github.com/n1k0/casperjs.git ~/casperjs
-  - sudo /etc/init.d/apache2 restart
   - cd ~/casperjs
   - export PATH=$PATH:`pwd`/bin
   - cd -
 
 before_script:
+  - ( cd ./Public && php -d "display_error=On" -S localhost:8888 .server.php > /dev/null 2>&1 & )
   - composer install
   - phantomjs --version
   - casperjs --version
 
-script: casperjs test ./Tests/Functionnal/application.js --url="http://localhost/"
+script: casperjs test ./Tests/Functionnal/application.js --url="http://localhost:8888/"
 
 notifications:
-  disabled: true
+  email: false

@@ -1,40 +1,41 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: Camael24
  * Date: 16/01/14
  * Time: 17:22
  */
-namespace Application\Bin\Command\Sample {
 
-    use Hoa\Console\Chrome\Text;
-    use Hoa\File\Finder;
+namespace Application\Bin\Command\Sample;
 
-    class Welcome extends \Hoa\Console\Dispatcher\Kit
-    {
+use Hoa\Console\Chrome\Text;
+use \Hoa\Console\GetOption;
 
-        /**
-         * Options description.
-         *
-         * @var \Hoa\Core\Bin\Welcome array
-         */
-        protected $options = array(
-            array('help', \Hoa\Console\GetOption::NO_ARGUMENT, 'h'),
-            array('help', \Hoa\Console\GetOption::NO_ARGUMENT, '?'),
-        );
+class Welcome extends \Hoa\Console\Dispatcher\Kit {
 
-        /**
-         * The entry method.
-         *
-         * @access  public
-         * @return  int
-         */
-        public function main()
-        {
+    /**
+     * Options description.
+     *
+     * @var \Hoa\Core\Bin\Welcome array
+     */
+    protected $options = [
+        ['help', GetOption::NO_ARGUMENT, 'h'],
+        ['help', GetOption::NO_ARGUMENT, '?'],
+    ];
 
-            $command = null;
+    /**
+     * The entry method.
+     *
+     * @access  public
+     * @return  int
+     */
+    public function main() {
 
-            while (false !== $c = $this->getOption($v)) switch ($c) {
+        $command = null;
+
+        while (false !== $c = $this->getOption($v))
+            switch ($c) {
 
                 case 'h':
                 case '?':
@@ -42,30 +43,29 @@ namespace Application\Bin\Command\Sample {
                     break;
             }
 
-            echo 'I do nothing :), i am just a demo';
+        echo 'I do nothing :), i am just a demo';
 
-            return;
-        }
-
-        /**
-         * The command usage.
-         *
-         * @access  public
-         * @return  int
-         */
-        public function usage()
-        {
-            echo \Hoa\Console\Chrome\Text::colorize('Usage:', 'fg(yellow)') . "\n";
-            echo '   Welcome ' . "\n\n";
-
-            echo $this->stylize('Options:', 'h1'), "\n";
-            echo $this->makeUsageOptionsList(array(
-                'help' => 'This help.'
-            ));
-
-            return;
-        }
+        return;
     }
+
+    /**
+     * The command usage.
+     *
+     * @access  public
+     * @return  int
+     */
+    public function usage() {
+        echo Text::colorize('Usage:', 'fg(yellow)') . "\n";
+        echo '   Welcome ' . "\n\n";
+
+        echo $this->stylize('Options:', 'h1'), "\n";
+        echo $this->makeUsageOptionsList([
+            'help' => 'This help.'
+        ]);
+
+        return;
+    }
+
 }
 
 __halt_compiler();

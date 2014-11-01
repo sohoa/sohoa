@@ -3,8 +3,8 @@
 /* @var $framework \Sohoa\Framework\Framework */
 
 // Defines the defaults route
-$this->get('/', array('as' => 'root',
-                        'to' => 'Main#index'));
+$this->get('/', ['as' => 'root',
+                        'to' => 'Main#index']);
 
 // The following code allows to route uri like
 // http://domain.com/customController/customAction/

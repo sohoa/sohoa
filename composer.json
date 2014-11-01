@@ -6,5 +6,4 @@
     "config": {
         "bin-dir": "Binaries"
     },
-    "minimum-stability": "dev"
-}
+    "minimum-stability": "dev"}
